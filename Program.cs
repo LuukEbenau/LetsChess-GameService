@@ -36,19 +36,16 @@ namespace LetsChess_GameService
 
 		public static IHostBuilder CreateHostBuilder(string[] args) =>
 			Host.CreateDefaultBuilder(args)
-			.ConfigureAppConfiguration((hostingContext, config) =>
-			{
-				config.AddEnvironmentVariables("LETSCHESS_");
-				var env = hostingContext.HostingEnvironment;
-				Console.WriteLine($"the environment is now: {env.EnvironmentName}");
+				.ConfigureAppConfiguration((hostingContext, config) =>
+				{
+					var env = hostingContext.HostingEnvironment;
+					Console.WriteLine($"the environment is now: {env.EnvironmentName}");
 
-				//TODO: hij pakt deze niet goed in kubernetes?
-				var dat = config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-						.AddJsonFile($"appsettings.{env.EnvironmentName}.json",
-										optional: true, reloadOnChange: true).Build();
-
-
-			})
+					//TODO: hij pakt deze niet goed in kubernetes?
+					config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+					.AddJsonFile($"appsettings.{env.EnvironmentName}.json",
+									optional: true, reloadOnChange: true);
+				})
 			.ConfigureWebHostDefaults(webBuilder =>
 			{
 				webBuilder.UseNLog().UseStartup<Startup>();
