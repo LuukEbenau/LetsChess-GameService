@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LetsChess_GameService.Logic;
+
+using LetsChess_Models.Models;
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 using System;
@@ -9,20 +13,23 @@ using System.Threading.Tasks;
 namespace LetsChess_GameService.Controllers
 {
 	[ApiController]
-	[Route("[controller]")]
+	[Route("/game")]
 	public class GameController : ControllerBase
 	{
 		private readonly ILogger<GameController> _logger;
+		private readonly Game game;
 
-		public GameController(ILogger<GameController> logger)
+		public GameController(ILogger<GameController> logger,Game game)
 		{
 			_logger = logger;
+			this.game = game;
 		}
 
-		[HttpGet("takemove")]
-		public IActionResult TakeMove()
+		[HttpPost("takemove")]
+		public IActionResult TakeMove(TakeMoveMessage move)
 		{
-			return Ok();
+			game.TakeMove(move.MatchId,move.UserId,move.From,move.To);
+			return Ok("move was taken");
 		}
 	}
 }

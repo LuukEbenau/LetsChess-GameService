@@ -17,4 +17,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MQClient\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LetsChess.Models\LetsChess.Models.csproj" />
+  </ItemGroup>
+
 </Project>
