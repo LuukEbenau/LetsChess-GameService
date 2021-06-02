@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LetsChess.Models\LetsChess.Models.csproj" />
+    <ProjectReference Include="..\shared\LetsChess.Models\LetsChess.Models.csproj" />
   </ItemGroup>
 
 </Project>

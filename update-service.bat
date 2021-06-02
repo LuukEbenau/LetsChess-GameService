@@ -1,4 +1,5 @@
 @ECHO OFF
 ECHO Lets update the service!
-docker build . -t sacation/letschess-gameservice
+cd ../
+docker build -t sacation/letschess-gameservice  . -f LetsChess-GameService/Dockerfile
 docker push sacation/letschess-gameservice
