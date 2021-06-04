@@ -1,5 +1,4 @@
-﻿
-using LetsChess_Models.Models;
+﻿using LetsChess_GameService.Messages;
 
 using System;
 using System.Collections.Generic;

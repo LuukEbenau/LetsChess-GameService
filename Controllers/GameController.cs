@@ -1,6 +1,5 @@
 ﻿using LetsChess_GameService.Logic;
-
-using LetsChess_Models.Models;
+using LetsChess_GameService.Messages;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
