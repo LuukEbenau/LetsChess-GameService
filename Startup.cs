@@ -41,6 +41,7 @@ namespace LetsChess_GameService
 			services.Configure<ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
 			services.AddSingleton<MQConnector>();
 			services.AddSingleton<Game>();
+			services.AddSingleton<IMoveStore,GameMoveStoreRedis>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

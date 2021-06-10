@@ -8,5 +8,6 @@ namespace LetsChess_GameService
 	public class ConnectionStrings
 	{
 		public string MQ { get; set; }
+		public string Redis { get; set; }
 	}
 }

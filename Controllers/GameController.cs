@@ -27,8 +27,8 @@ namespace LetsChess_GameService.Controllers
 		[HttpPost("takemove")]
 		public IActionResult TakeMove(TakeMoveMessage move)
 		{
-			game.TakeMove(move.MatchId,move.UserId,move.From,move.To);
-			return Ok("move was taken");
+			game.TakeMove(move.MatchId, move.UserId, move.From, move.To);
+			return Ok($"move was taken: '{move.From}->{move.To}' by '{move.UserId}' in match '{move.MatchId}'");
 		}
 	}
 }
